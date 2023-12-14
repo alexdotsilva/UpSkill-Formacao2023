@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Desafio 5 Cumes</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    
+    <table style="table-layout: auto; width: auto; margin-left: auto; margin-right: auto;">
+        <tr>
+            <th colspan="4" style="font-size: 30px; font-weight: 800; color: green; background-color: aquamarine; text-align: center;">
+                BTT - 5 Cumes - Formulário de inscrição
+            </th>
+        </tr>
+    </table><br>
+
+    <form action="form_test" method="post">
+        <div>
+            <table style="table-layout: auto; width: auto; margin-left: auto; margin-right: auto;">
+                <tr>
+                    <th colspan="4" style="font-size: 25px;">
+                        Fomulário de Inscrição
+                    </th>
+                </tr>
+            </table><br>
+
+            <table  style="table-layout: auto; width: auto; margin-left: auto; margin-right: auto;">
+                <tr><!--Table row-->
+                    <th style="text-align: left;"><!--table head-->
+                        <label for="nome">Nome</label>
+                    </th>
+                    <td colspan="2" ><!--Table data-->
+                        <input type="text" >
+                    </td>
+                    <th style="text-align: left;">
+                        <label for="sobrenome">Sobrenome</label>
+                    </th>
+                    <td colspan="2">
+                        <input style="width: 100%; box-sizing: border-box;" type="text" required >
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: left;">
+                        <label for="email">Email</label>
+                    </th>
+                    <td colspan="3">
+                        <input type="email" required style="width: 100%; box-sizing: border-box;">
+                    </td>
+                    <th style="text-align: left;">
+                        <label for="idade">Idade:</label>
+                    </th>
+                    <td>
+                        <input type="text" maxlength="03" pattern="[0-9]" placeholder="Somente numeros">
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: left;">
+                        <label for="morada">Morada:</label>
+                    </th>
+                    <td colspan="5">
+                        <textarea name="morada" id="" rows="2" style="width: 100%; box-sizing: border-box;"></textarea>
+                    </td>
+                </tr>
+            </table><br>
+                    
+            <table style="table-layout: auto; width: auto; margin-left: auto; margin-right: auto;">
+                <tr>
+                    <th style="text-align: center;" colspan="5">
+                        <label for="bi">Identificação</label>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="5">
+                        Nº BI: <br> <input type="text" required>
+                    </th>
+                </tr>
+                
+                <tr>
+                    <th style="text-align: center;" colspan="2">
+                        <label for="fotoBI">Fotocópia do BI:</label> <br>
+                        <input type="file" name="copiaBI" id="">
+                    </th>
+                </tr>
+            </table>
+            <br>
+
+            <table border="1px" style="margin-left: auto; margin-right: auto;">
+                <tr>
+                    <th colspan="4" style="font-size: 25px; text-align: center;">
+                        Tipo de participação
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: center;">
+                        <input type="radio" name="tipoInsc" id="">Federado
+                        <input type="radio" name="tipoInsc" id="">Promoção
+                    </td>
+                </tr>
+            </table><br>
+
+            <table style="margin-left: auto; margin-right: auto;">
+                <th style="font-size: 18px;">
+                    Restrições alimentares <br>
+                        <select style="text-align: center;" name="select" id="">
+                            <option value="val0">--</option>
+                            <option value="val1">Vegetariano</option>
+                            <option value="val2">Vegano</option>
+                            <option value="val3">Alérgico</option>
+                            <option value="val4">Sem restrições</option>
+                        </select>
+                </th>
+            </table><br>
+
+            <table style="margin-left: auto; margin-right: auto;">
+                <tr>
+                    <th style="font-size: 18px;">
+                        Registro
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Utilizador <br><input type="text"> <br>
+                        Passe <br><input type="password">
+                    </td>
+                </tr>
+            </table>
+
+
+    </form>
+
+</body>
+</html>
