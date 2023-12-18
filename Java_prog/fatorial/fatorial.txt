@@ -1,0 +1,14 @@
+Pseudo-codigo do problema:
+
+int: numero, fatorial, aux
+inicio
+escrever("inserir numero para fatorial")
+ler(numero)
+aux=numero
+fatorial=numero
+enquanto(aux>1)
+    fatorial=fatorial*(aux-1)
+    aux--
+fim enquanto
+escrever(fatorial)
+fim
