@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap');
+
+body{
+    background-color: black;
+    background-image: url('https://fstatic1.mtb-news.de/img/photos/1/3/1/4/2/0/_/large/1280x960-sunset-mountain-bike-wallpaper.jpg?0');
+    height: auto;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+h1,h2{
+    text-align: center;
+    font-family: 'Rubik Scribble';
+    font-size: 50px;
+    color: lightgray;
+    margin: 0px;
+    margin-block: 0px;
+}
+
+p{
+    color: lightgray;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+form{
+    background-color: black;
+    opacity: 80%;
+    text-align: center;
+}
+
+form p{
+    text-align: center;
+    font-family: 'Rubik Scribble';
+    font-size: 30px;
+    color: lightgray;
+}
+
+label,input{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+.form_div_nome{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: 15%;
+}
+.form_div_nome label{
+    text-align: right;
+}
+.form_div_nome input{
+    width: 50%;
+}
+
+.form_div_email,.form_div_bi{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: auto;
+}
+
+.form_div_morada{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form_div_parti label{
+    text-align: center;
+    font-family: 'Rubik Scribble';
+    font-size: 30px;
+    color: lightgray;
+}
+
+.form_div_restri label{
+    text-align: center;
+    font-family: 'Rubik Scribble';
+    font-size: 30px;
+    color: lightgray;
+}
+.form_div_restri{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    color: lightgray;
+}
+
+.login{
+   text-align: center;
+   border: solid white 2px;
+   width: 50%;
+   position: relative;
+   left: 25%;
+   padding: 2%;
+}
