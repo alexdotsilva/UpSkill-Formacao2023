@@ -1,0 +1,75 @@
+button{
+    position: relative;
+    left: 30%;
+    height: 50px;
+    width: 300px;
+    border: black solid 3px;
+    border-radius: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 22px;
+    text-align: center;
+    padding: 15;
+    background-color: yellow;
+    box-shadow: -3px -3px darkgray, -4px -4px black;
+}
+button:hover{
+    background-color: darkgoldenrod;
+}
+button:active{
+    background-color: darkgoldenrod;
+    box-shadow: 0 0 white;
+}
+
+@keyframes blink{
+    0% {background-color: red;}
+    50% {background-color: yellow;}
+    100%{background-color: red;}
+}
+
+@keyframes rotate {
+    0% {rotate: 0deg;}
+    12.5% {rotate: 45deg;}
+    25% {rotate: 90deg;}
+    37.5% {rotate: 135deg;}
+    50% {rotate: 180deg;}
+    62.5% {rotate: 225deg;}
+    75% {rotate: 270deg;}
+    87.5% {rotate: 315deg;}
+    100% {rotate: 360deg;}
+}
+
+div.sq1{
+    background-color: red;
+    position: relative;
+    left: 50%;
+    top: 50px;
+    border: 5px solid black;
+    height: 100px;
+    width: 100px;
+    animation-play-state: running;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+div.sq2{
+    position: relative;
+    left: 50%;
+    top: 50px;
+    border: 5px solid black;
+    height: 100px;
+    width: 100px;
+    animation-play-state: running;
+    animation-name: rotate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+img{
+    position: relative;
+    left: 25%;
+    height: 50%;
+    width: 50%;
+}
+img:hover{
+    transform: scale(2, 2);
+}
