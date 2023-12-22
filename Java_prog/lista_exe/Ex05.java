@@ -10,6 +10,7 @@ public class Ex05 {
         num2 = teclado.nextFloat();
         System.out.print("Digite 3 números para ordernar [3]: ");
         num3 = teclado.nextFloat();
+        teclado.close();
         
         if (num1<num2 && num2<num3) {
             System.out.println(num1+","+num2+","+num3);

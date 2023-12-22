@@ -7,6 +7,7 @@ public class Ex02 {
         System.out.print("Digite um numero inteiro: "); num1 = ler.nextInt();
         System.out.print(" e agora outro numero inteiro: "); num2 = ler.nextInt();
         total = num1 + num2;
+        ler.close();
         System.out.println("A soma é: "+total);
 
         if (total > 10) {

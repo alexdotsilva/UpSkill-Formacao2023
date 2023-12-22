@@ -1,4 +1,3 @@
-package lista_exe;
 import java.util.Scanner;
 
 public class Ex01 { // essa é a classe principal, onde todo o codigo vai ser inserido
@@ -10,6 +9,7 @@ public class Ex01 { // essa é a classe principal, onde todo o codigo vai ser in
         System.out.print(" e agora outro numero inteiro: "); num2 = ler.nextInt();
         total = num1 + num2;
         System.out.println("A soma é: "+total);
+        ler.close();
     }
 
     public static void main(String[] args){

@@ -6,6 +6,7 @@ public class Ex04 {
         Scanner teclado = new Scanner(System.in);
         System.out.println("Digite um numero para verificar:");
         num1 = teclado.nextFloat();
+        teclado.close();
         
         if (num1 == 20) {
             System.out.println("O numero "+num1+" é igual a 20.");

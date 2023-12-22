@@ -6,6 +6,7 @@ public class Ex03 {
         Scanner teclado = new Scanner(System.in);
         System.out.println("Entre um número inteiro e verifique se é divisivel por 5. ");
         num1 = teclado.nextInt();
+        teclado.close();
 
         if ((num1%5 != 0 || num1 == 0)) {
             System.out.println("O numero "+num1+" não é divísivel por 5.");
