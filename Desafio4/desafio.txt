@@ -1,5 +1,0 @@
-Recorrendo aos elementos HTML 5, crie uma página com:
-- 1 cabeçalho com uam imagem à largura
-- 1 zona à direita com texto
-- 1 footer
-- 1 video na zona central
