@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Lista JavaScript - Pagina de teste</h1>
+    <p><strong>EX. 01</strong> - Crie duas variáveis, `num1` e `num2`, e atribua a estas variáveis valores numéricos. Depois faça a soma desses dois números e apresente o resultado na consola.</p>
+    <label for="num1">Número 1<input type="number" id="num1"></label>
+    <label for="num2">Número 2<input type="number" id="num2"></label>
+    <button onclick="soma()">Calcular</button>
+    <p id="result"></p>
+    <script>
+        function soma(){
+            let input1 = document.getElementById("num1");
+            let aux = input1.value;
+            let num1 = parseFloat(aux);
+            let input2 = document.getElementById("num2");
+            aux = input2.value;
+            let num2 = parseFloat(aux);
+            let total = num1 + num2;
+            document.getElementById("result").innerHTML = "A soma dos valores é "+total;
+        }
+    </script>
+
+    <p><strong>EX. 02</strong> - Crie uma função chamada `reverseString` que recebe como parâmetro uma string e retorne a string invertida. Por exemplo, se o input for "hello", a saída deve ser "olleh".</p>
+    <label for="">A palavra digitada é: <input type="text" id="ex2"></label>
+    <button onclick="reverseString()">INVERT</button>
+    <p id="invert">A palavra invertida é:</p>
+
+<!-- Conforme indicado, a função reverseString tem 2 variavais, 1 para a palavra original e a 2 para a palavra invertida.
+Para que a palavra possa ser invertida, a primeira variavel recebe a palavra original e usa a função split para separar a string em um array (splitString) e em seguida tem a ordem invertida com a função reverse e inserida em um novo array (reverseArray), por ultimo o array recebe a função join para formar a palavra2 agora invertida e novamente uma string -->
+
+    <script>
+        function reverseString(palavra1, palavra2) {
+            palavra1 = document.getElementById("ex2").value;
+
+            if (palavra1 != null) {
+                let splitString = palavra1.split("");
+                let reverseArray = splitString.reverse();
+                let palavra2 = reverseArray.join("");
+                document.getElementById("invert").innerHTML = "A palavra invertida é: "+palavra2;
+            }
+        }   
+    </script>
+
+<p><strong>EX. 03</strong> - Relembre as funções arrow. Crie uma função `calculateAverage` que aceita um array de números como parâmetro e retorne a média dos valores.</p>
+<button onclick="calculateAverage()">MÉDIA</button>
+<p id="ex3">A média do conjunto é:</p>
+
+<!-- A função arrow average recebe uma variavel numbers e usa internamente a função reduce para somar todos os valores do array (total+current) e retorna a constante que é o total da soma dividido pelo comprimento do array. Assim temos a média.  -->
+
+<script>
+    let a = [1,2,3,4,5,6,7,8,9];
+
+    const average = (numbers) => {const sum = numbers.reduce((total, current) => total+current,0);
+        return sum/numbers.length;
+    }
+
+    function calculateAverage(){
+        let median = average(a);
+        document.getElementById("ex3").innerHTML="A média do conjunto é: "+median;
+    }
+</script>
+
+<p><strong>EX. 04</strong> - Escreva uma expressão de função para determinar se um número é primo ou não. Nota: A função deve retornar `true` se o número for primo e `false` se não for.</p>
+<label>Digite um número para confirmar se é primo: <input type="number" id="primo"></label>
+<button onclick="checkPrime()">VERIFICA</button>
+<p style="font-style: italic; color: red;" id="primo2"></p>
+
+<script>
+    function checkPrime() {
+        let numero = parseInt(document.getElementById("primo").value);
+        let resultado = isPrime(numero);
+        document.getElementById("primo2").innerHTML = resultado.toString();
+    }
+
+    function isPrime(num) {
+        num = document.getElementById("primo").value;
+        if(num <= 1){
+            return false;
+        } else {
+            for(let i=2, s=Math.sqrt(num); i<=s; i++) {
+                if(num % i === 0) {
+                    return false;
+                }
+            } return true;
+        }
+    }
+</script>
+
+<p><strong>EX. 05</strong> - Tenha em consideração o conceito de Array em JavaScript. Crie um array de números desordenados e de seguida:
+    <ul>
+        <li>Escreva uma função para ordenar esses números em ordem crescente.</li>
+        <li>Apresente o array ordenado na consola.</li>
+    </ul>
+</p>
+<p id="unordered"></p>
+<button onclick="organize()">SORT</button>
+<p id="ordered"></p>
+
+
+<script>
+    const numbers = [9,5,1,3,7,6,8,4,2]
+    document.getElementById("unordered").innerHTML = "Array de números desordenados: "+numbers;
+    function organize() {
+        numbers.sort(function(a, b) {
+            return b-a;
+        });
+        numbers.reverse();
+        document.getElementById("ordered").innerHTML = "Array de números ordenados: "+numbers;
+    }
+</script>
+
+<p><strong>EX. 06</strong> - A programação orientada a objetos é um paradigma que potencia a estruturação hierárquica de componentes, a sua reutilização e a sua encapsulação.
+    <ul>
+        <li>Crie um objeto chamado `car` com as propriedades `brand`, `model` e `year`.</li>
+        <li>Preencha as propriedades com valores à sua escolha.</li>
+        <li>Apresente o objeto na consola.</li>
+    </ul>
+<label for="carSelect">Escolha o carro:</label>
+<select name="cars" id="cars" onchange="displayCars()">
+    <option value="--">--</option>
+    <option value="car1">Carro 1</option>
+    <option value="car2">Carro 2</option>
+    <option value="car3">Carro 3</option>
+</select>
+<p id="displayInfo"></p>
+
+<script>
+    let cars = {
+        car1: { brand: "BMW", model: "M3", year: 2020},
+        car2: { brand: "VW", model: "Golf", year: 1999},
+        car3: { brand: "Fiat", model: "Palio", year: 1990}
+    }
+
+    function displayCars(){
+        let selectedCar = document.getElementById("cars").value;
+        let displayInfoElement = document.getElementById("displayInfo");
+        if (cars[selectedCar]) {
+            let selectedCarInfo = cars[selectedCar];
+            displayInfoElement.innerHTML = `
+            <p>Brand: ${selectedCarInfo.brand}</p>
+            <p>Model: ${selectedCarInfo.model}</p>
+            <p>Year: ${selectedCarInfo.year}</p>
+            `;
+        }
+    }
+</script>
+
+<p><strong>EX. 07</strong> - Escreva o código que exibe os números de 1 a 10 na consola.</p>
+<button onclick="print10()">GO</button>
+<p id="numbers10"></p>
+
+<script>
+    function print10() {
+        let n = [];
+        for (let i=1; i<=10; i++ ){
+            n.push(i);
+        }
+        document.getElementById("numbers10").innerHTML = "Números:"+n;
+    }
+</script>
+
+<p><strong>EX. 08</strong> - Crie uma função chamada `validateEmail` que aceita uma string como parâmetro e verifica se representa um email válido. A função deve retornar `true` se o email for válido e `false` se não for.</p>
+
+<label for="email">Digite um email: <input type="text" id="email"></label>
+<button onclick="validateEmail()">VALIDATE 1</button>
+<button onclick="validateEmail2()">VALIDATE 2</button> <br>
+<p id="valid">1</p>
+<p id="valid2">2</p>
+
+<script>
+    function validateEmail() {
+        let email = document.getElementById("email").value
+        console.log("email - "+email);
+        let hasAt = email.includes("@");
+        console.log("@ "+hasAt);
+        let hasCom = email.includes(".com");
+        console.log(".com "+hasCom);
+        let hasSpace = email.includes(" ");
+        console.log("space "+hasSpace);
+
+        if (hasAt == false) {
+            document.getElementById("valid").innerHTML = "1 - O email ["+email+"] não é um endereço válido.";
+        } else if (hasCom == false) {
+            document.getElementById("valid").innerHTML = "1 - O email ["+email+"] não é um endereço válido.";
+        } else if (hasSpace == true) {
+            document.getElementById("valid").innerHTML = "1 - O email ["+email+"] não é um endereço válido.";
+        } else {
+            document.getElementById("valid").innerHTML = "1 - O email ["+email+"] é um endereço válido.";
+        }
+    }
+
+    function validateEmail2() {
+        let email = document.getElementById("email").value
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        if (emailRegex.test(email)) {
+            document.getElementById("valid2").innerHTML = "2 - O email ["+email+"] é um endereço válido.";
+        } else {
+            document.getElementById("valid2").innerHTML = "2 - O email ["+email+"] não é um endereço válido.";
+        }
+    }
+</script>
+
+<p><strong>EX. 09</strong> - Crie uma função arrow que aceita um array de números como parâmetro e retorne um novo array contendo apenas os números pares.</p>
+<p id="array_all"></p>
+<button onclick="filterEvens()">PARES</button>
+<p id="pares"></p>
+
+<!-- usando uma função arrow dentro da função filter, conseguimos retornar somente os numeros pares, ou seja números que o divididos por 2 tem modulo 0 (number%2===0), dentro do array original -->
+
+<script>
+    let array_all = [1,2,3,4,5,6,7,8,9,10];
+    document.getElementById("array_all").innerHTML="Array ["+array_all+"]";
+    /*let evens = [];
+    for (let i=0; i <= array_all.length; i++) {
+        if ((array_all[i]%2)==0) {
+            evens.push(array_all[i]);
+        }
+    console.log(evens);
+    }*/
+    function filterEvens() {
+        let evens = array_all.filter((number)=>number%2===0);
+        document.getElementById("pares").innerHTML="Array ["+evens+"]";
+        }
+</script>
+    
+<p><strong>EX. 10</strong> - Orientação a Objetos: Herança</p>
+    <ul>
+        <li>Crie uma classe `Animal` com propriedades `name` e `type`.</li>
+        <li>Crie uma classe `Dog` que herde de `Animal` e adicione uma propriedade `breed`.</li>
+        <li>Instancie um objeto `dog` e apresente suas propriedades na consola.</li>
+    </ul>
+
+<!-- a classe animal criada com o construtor que pede nome e tipo, e um metodo que retorna o valor das propiedades. O mesmo foi feito com a classe dog, que usando o comando extends. A classe dog herdou os construtores nome e tipo, e foi adicionado a raça(breed). -->
+
+<label for="animal">Animal:</label>
+<button onclick="showAnimal(1)" >1</button>
+<button onclick="showAnimal(2)" >2</button>
+<p id="animal"></p>
+
+<label for="dog">Cão:</label>
+<button onclick="showDog(1)">1</button>
+<button onclick="showDog(2)">2</button>
+<p id="dog"></p>
+
+<script>
+    class Animal {
+        constructor (name, type) {
+        this.name=name;
+        this.type=type;
+        }
+        get animal() {
+            return {name:this.name, type:this.type};
+        }
+    }
+
+    class Dog extends Animal {
+        constructor (name, type, breed) {
+            super(name, type);
+            this.breed = breed;
+        }
+        get dog() {
+            return {name:this.name, type:this.type, breed:this.breed};
+        }
+    }
+
+    let animal1 = new Animal ("Zebra", "Mammal");
+    let animal2 = new Animal ("Snake", "Reptile")
+    console.log(animal1.animal);
+    console.log(animal2.animal);
+    let dog1 = new Dog ("Max", "Dog", "Chiuaua");
+    let dog2 = new Dog ("Toto", "Dog", "German-Sheperd");
+    console.log(dog1.dog);
+    console.log(dog2.dog);
+
+    function showAnimal(selectedButton) {
+        if (selectedButton == 1) {
+            document.getElementById("animal").innerHTML = "Animal 1: "+animal1.name+" - "+animal1.type;
+        } else {
+            document.getElementById("animal").innerHTML = "Animal 2: "+animal2.name+" - "+animal2.type;
+        }
+    }
+
+    function showDog(selectedButton) {
+        if (selectedButton == 1) {
+            document.getElementById("dog").innerHTML = "Cão 1: "+dog1.name+" - "+dog1.type+" - "+dog1.breed;
+        } else {
+            document.getElementById("dog").innerHTML = "Cão 2: "+dog2.name+" - "+dog2.type+" - "+dog2.breed;
+        }
+    }
+
+</script>
+
+</body>
+</html>
