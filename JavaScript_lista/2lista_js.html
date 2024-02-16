@@ -1,0 +1,205 @@
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   </head>
+   <body>
+    
+    <h1>Lista JavaScript 2 - Pagina de teste</h1>
+
+    <p><strong>EX. 01</strong> - Explique a diferença entre os operadores de comparação ==, === e !=.</p>
+    <p>
+        == - indica igualdade de valor. Por exemplo se indicar x=1. x==1 e x=="1" vão retornar como true. Contanto que o valor indicado seja 1, não importa a notação usada (binario, hexadecimal, string ou real).
+    </p>
+    <p>
+        === - idica igualdade de valor e de tipo. Diferente do exemplo acima, a comparação só retorna true se o valor e o tipo forem iguais, assim x==="1" retorna falso.
+    </p>
+    <p>
+        != - indica não igualdade, ou se é diferente. Assim, x!=2 ou x!="2" retorna true. Da mesma maneira podemos usar !=== para indicar não deiferença de valor ou tipo.
+    </p>
+
+    <br><p><strong>EX. 02</strong> - Qual o resultado da seguinte expressão? 1 + "2" + 4</p>
+    <script>
+        let sum = 1+"2"+4;
+        console.log(sum);
+    </script>
+    <p>
+        O resultado da expressão acima é 124, sendo que o operador "+" junta os valores informados. Sendo o valor "1" adicionado a string "2" e novamente ao valor "4".
+    </p>
+
+    <br><p><strong>EX. 03</strong> - Qual a diferença entre os tipos de dados null e undefined?</p>
+    <p>
+        null - Usado para indicar uma variavel sem valor, mas com tipo. Ex: var1=""; indica uma string sem valor ou "null".
+    </p>
+    <p>
+        undefined - Em JavaScript "undefined" pode ser usado para indicar uma variavel sem valor e sem tipo. Ex: var1 = undefined; é o mesmo que var;
+    </p>
+
+    <br><p><strong>EX. 04</strong> - Como pode alterar o estilo ou classe de um elemento HTML usando JavaScript?</p>
+    <p>
+        Usando a função document.getElementById(id).attribute = 'novo valor' trocando o attribute pelo o que quer ser alterado (estilo, classe, nome...) e indicando o valor ao fim da linha.
+    </p>
+    
+    <br><p><strong>EX. 05</strong> - Quais são os diferentes tipos de loops que podem ser utilizados em JavaScript? </p>
+    <p>
+        for - O loop "para" corre uma função por um número de vezes definido em um bloco de código. Sendo preciso definir uma variavel contadora, a função que deve ser usada e um incremento para o número de vezes (for (let i = 0; i < 5; i++){retorno}). Ainda podem ser usados os comandos for/in e for/of para interações com as propriedades de um objeto e valores de um objeto, nessa ordem.
+    </p>
+    <p>
+        while - O loop "enquanto" interage com um bloco de código enquanto a condição apresentada for verdadeira (while (x==1){retorno}). 
+    </p>
+    <p>
+        do while - Do mesmo modo, o loop "faça enquanto", interage com o bloco de código uma primeira vez antes de verificar se a condição é verdadeira. Assim, se a condição mudar antes da verificação o programa sai do loop (do {código a correr} while (x!=0)).
+    </p>
+
+    <br><p><strong>EX. 06</strong> - Explique o que é o objeto window em JavaScript e quais são as principais propriedades.</p>
+    <p>
+        O objeto window representa a janela do browser. Assim interações com a janela do browser depende da interação com este objeto. Assim podemos usar uma multitude de comando como window.open() ou window.close() para abrir e fechar janelas no browser, entre outros.      
+    </p>
+
+    <br><p><strong>EX. 07</strong> - Através de uma pesquisa, indique 3 frameworks JavaScript populares e as suas principais características.</p>
+    <p>
+        Frameworks são softwares com infraestrutura e bibliotecas pré construidas que facilitam o desenvolvimento. Entre os mais populares estão: Angular, React, Vue.js e jQuery.
+    </p>
+
+    <br><p><strong>EX. 08</strong> - Elabore uma pesquisa para descrever como funciona o sistema de módulos no JavaScript e como importá-los no código.</p>
+    <p>
+        Módulos são uma maneira de compartimentar o codigo de maneira a facilitar a manutenção e o possível re-uso ou remoção do mesmo. <br>
+        O padrão Module é uma forma de imitar o conceito de classes, visto que JavaScript não da suporte ao conceito de classes de modo nativo, permitindo armazenar métodos e variaveis de maneira pública ou privada. <br>
+        Assim, para que as funções/variaveis/contantes possam ser usadas em outros modulos as keywords "import" e "export" são usadas. <br>
+        Para importar módulos em JavaScript, utiliza-se a sintaxe import seguida do nome da variável ou função desejada, juntamente com o caminho (relativo ou absoluto) do arquivo do módulo. Isso oferece flexibilidade na organização do código e, evita conflitos de nomeação global. Além de permitir que os módulos possam ser carregados de forma assíncrona, melhorando o desempenho em determinadas situações.
+    </p>
+
+    <br><p><strong>EX. 09</strong> - Crie uma classe ContaBancaria com os seguintes atributos:
+        <ul>
+            <li>numero (number)</li>
+            <li>saldo (number)</li>
+        </ul>
+        Crie os métodos depositar e levantar que modificam o saldo da conta. Crie também um método extrato que imprime o número da conta e o saldo.
+        </p>
+
+        <label for="nome">Nome: <input type="text" id="nomeConta" required></label>
+        <button onclick="criarNovaConta()">Nova Conta</button>
+        <button onclick="extrato()">Extrato</button><br><br>
+        <label for="valor">Valor: <input type="number" id="valores"></label>
+        <button onclick="mudaSaldo(1)">Depositar</button>
+        <button onclick="mudaSaldo(2)">Levantar</button><br>
+        <p id="mostra"></p><br>
+
+
+        <script>
+            let contas = [];
+
+            class ContaBancaria {
+                constructor(nome, numero, saldo) {
+                    this.nome = nome;
+                    this.numero = numero;
+                    this.saldo = saldo;
+                }
+
+                get conta() {
+                    return {
+                        nome: this.nome,
+                        numero: this.numero,
+                        saldo: this.saldo
+                    };
+                }
+            }
+
+            function criarNovaConta(nome, saldoInicial) {
+                if (document.getElementById("nomeConta").value === "") {
+                    alert("Campo não pode estar vaziu.");
+                } else {
+                    let numero = 0;
+                    nome = document.getElementById("nomeConta").value;
+                    saldoInicial = 0;
+                    numero = contas.length + 1; // Use length + 1 as the next unique numero
+                    let novaConta = new ContaBancaria(nome, numero, saldoInicial);
+                    contas.push({[numero]: novaConta});
+                    console.log(contas);
+                }
+            }
+
+            function extrato() {
+                let nomeconta = document.getElementById("nomeConta").value.trim();
+                let conta = contas.find(contaObj => Object.values(contaObj)[0].nome === nomeconta);
+                if (conta) {
+                    let contaInfo = `Número: ${conta[Object.keys(conta)[0]].numero}, Saldo: ${conta[Object.keys(conta)[0]].saldo}`;
+                    document.getElementById("mostra").innerHTML = contaInfo;
+                    } else {
+                        document.getElementById("mostra").innerHTML = "Conta não encontrada.";
+                    }
+                    console.log(conta);
+            }
+
+            function mudaSaldo(selectedButton) {
+                let nomeConta = document.getElementById("nomeConta").value.trim();
+                let conta = contas.find(contaObj => Object.values(contaObj)[0].nome === nomeConta);
+                let valor = parseInt(document.getElementById("valores").value);
+                console.log(valor);
+                console.log(conta[Object.keys(conta)[0]].nome);
+                console.log(conta[Object.keys(conta)[0]].saldo);
+
+                if (selectedButton == 1) {
+                    conta[Object.keys(conta)[0]].saldo += valor;
+                    console.log("Saldo modificado com sucesso:", conta[Object.keys(conta)[0]].conta);
+                    document.getElementById("mostra").innerHTML = `Novo Saldo: ${conta[Object.keys(conta)[0]].saldo}`;
+                } else if (selectedButton == 2) {
+                    conta[Object.keys(conta)[0]].saldo -= valor;
+                    console.log("Saldo modificado com sucesso:", conta[Object.keys(conta)[0]].conta);
+                    document.getElementById("mostra").innerHTML = `Novo Saldo: ${conta[Object.keys(conta)[0]].saldo}`;
+                } else {
+                    console.log("Conta não encontrada.");
+                }
+            }
+
+        </script>
+
+    <br><p><strong>EX. 10</strong> - Crie uma classe Produto com os seguintes atributos:
+        <ul>
+            <li>nome (string)</li>
+            <li>preco (number)</li>
+            <li>quantidade (number)</li>
+        </ul>
+        Crie os métodos adicionar e remover que modificam a quantidade do produto. Crie também um método total que calcula o valor total do produto (preço x quantidade).</p>
+
+        <script>
+            class Produto {
+                constructor(nome, preco, quantidade) {
+                    this.nome=nome;
+                    this.preco=preco;
+                    this.quantidade=quantidade;
+                }
+
+                adicionar(novaQuantidade) {
+                    this.quantidade = this.quantidade+novaQuantidade;
+                }
+
+                remover(novaQuantidade) {
+                    if (novaQuantidade <= this.quantidade) {
+                        this.quantidade = this.quantidade - novaQuantidade;
+                    } else {
+                        console.log("A quantidade "+novaQuantidade+" deve ser menor que "+this.quantidade);
+                    }
+                }
+
+                total() {
+                    return this.preco*this.quantidade;
+                }
+            }
+
+            let copo = new Produto("copo", 1.5, 50);
+            console.log(copo);
+            copo.adicionar(30);
+            console.log("Nova quantidade é: "+copo.quantidade);
+            copo.remover(100);
+            copo.remover(60);
+            console.log("Nova quantidade é: "+copo.quantidade);
+            let valorTotal=copo.total();
+            console.log("O valor total do produto é: "+valorTotal);
+
+        </script>
+
+   </body>
+   </html>
